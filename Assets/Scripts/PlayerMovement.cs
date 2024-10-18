@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 
@@ -28,6 +29,21 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Ghost;
+
+            while (this.gameObject.GetComponent<SpriteRenderer>().sprite = Ghost)
+            {
+                Physics2D.gravity = new Vector3(10f, 0f, 0f);
+                Vector2 direction = Vector2.zero;
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    direction = Vector2.up;
+                }
+
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    direction = Vector2.down;
+                }
+            }
         }
 
         //if Space is pressed, add jumpPower to movement
