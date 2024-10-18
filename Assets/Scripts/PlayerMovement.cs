@@ -25,27 +25,15 @@ public class PlayerMovement : MonoBehaviour
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
 
-        //changes sprite when F is pressed
-        if (Input.GetKeyDown(KeyCode.F))
+        //changes sprite and allows free movement when F is held
+        if (Input.GetKey(KeyCode.F))
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Ghost;
-
-            while (this.gameObject.GetComponent<SpriteRenderer>().sprite = Ghost)
-            {
-                Physics2D.gravity = new Vector3(10f, 0f, 0f);
-                Vector2 direction = Vector2.zero;
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    direction = Vector2.up;
-                }
-
-                if (Input.GetKeyDown(KeyCode.S))
-                {
-                    direction = Vector2.down;
-                }
-            }
+            GetComponent<Rigidbody2D>().gravityScale = 0;
+            
+            Vector3 inputVector = new Vector3(inputX, inputY, 0) * speed * Time.deltaTime;
+            transform.position += inputVector;
         }
-
         //if Space is pressed, add jumpPower to movement
         else if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -57,6 +45,19 @@ public class PlayerMovement : MonoBehaviour
             Vector3 inputVector = new Vector3(inputX, 0, 0) * speed * Time.deltaTime;
             transform.position += inputVector;
         }
+
+        
+        
+        //THESE BOTH BREAK UNITY 
+
+        //while (Input.GetKey(KeyCode.F))
+        //{
+        //    this.gameObject.GetComponent<SpriteRenderer>().sprite = Ghost;
+        //    GetComponent<Rigidbody2D>().gravityScale = 0;
+        //
+        //    Vector3 inputVector = new Vector3(inputX, inputY, 0) * speed * Time.deltaTime;
+        //    transform.position += inputVector;
+        //}
 
         //while (this.gameObject.GetComponent<SpriteRenderer>().sprite = Ghost)
         //{
