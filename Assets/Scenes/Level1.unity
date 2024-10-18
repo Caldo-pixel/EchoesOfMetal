@@ -1019,8 +1019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3790ef925b3c34589f1157017a35b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  jumpPower: 8
+  Ghost: {fileID: 7980544715582631058, guid: 4eae6f99c6bd0fa47813abad5a1623bf, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
